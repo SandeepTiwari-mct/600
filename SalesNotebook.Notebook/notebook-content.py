@@ -22,9 +22,20 @@
 
 # CELL ********************
 
-# Welcome to your new notebook
-# Type here in the cell editor to add code!
+df = spark.read.format("csv").option("header","true").load("Files/sales.csv")
+# df now is a Spark DataFrame containing CSV data from "Files/sales.csv".
+display(df)
 
+# METADATA ********************
+
+# META {
+# META   "language": "python",
+# META   "language_group": "synapse_pyspark"
+# META }
+
+# CELL ********************
+
+display(df)
 
 # METADATA ********************
 
