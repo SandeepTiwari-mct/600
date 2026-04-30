@@ -1,0 +1,79 @@
+table 'Kusto Query Result'
+	lineageTag: 134005a3-ed7b-482a-92ab-80a22c9bf687
+
+	column BikepointID
+		dataType: string
+		lineageTag: 6624c835-3b67-433e-afa2-fa42529606b5
+		summarizeBy: none
+		sourceColumn: BikepointID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Street
+		dataType: string
+		lineageTag: ad6dcd8d-6854-48f4-92bd-ab4d04aa3914
+		summarizeBy: none
+		sourceColumn: Street
+
+		annotation SummarizationSetBy = Automatic
+
+	column Neighbourhood
+		dataType: string
+		lineageTag: 346604b3-c31c-4d66-9eb8-d527586f4033
+		summarizeBy: none
+		sourceColumn: Neighbourhood
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: cfc3de03-5993-4c57-86ce-04f0389bb673
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: 3298dc25-2b1c-4b3f-8b24-50e45e8f94a2
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column No_Bikes
+		dataType: int64
+		formatString: 0
+		lineageTag: c54da2b0-995b-432c-b348-0cab59756c4e
+		summarizeBy: sum
+		sourceColumn: No_Bikes
+
+		annotation SummarizationSetBy = Automatic
+
+	column No_Empty_Docks
+		dataType: int64
+		formatString: 0
+		lineageTag: 2615af0f-ac10-42d0-b266-b1114039e26b
+		summarizeBy: sum
+		sourceColumn: No_Empty_Docks
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Kusto Query Result' = m
+		mode: directQuery
+		source =
+				let
+				Source = AzureDataExplorer.Contents("https://trd-a1kzz36hb86rxpdygt.z9.kusto.fabric.microsoft.com", "d607bf10-6f4b-44b7-bf84-270e4ff95a49", "// Use 'take' to view a sample number of records in the table and check the data.
+				KqlTable
+				| take 100
+				
+				", [])
+				in
+				Source
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,103 @@
+{
+  "schema_version": 74,
+  "tiles": [
+    {
+      "id": "004adf74-9bc1-461e-bf79-80365fa1baec",
+      "title": "New Tile",
+      "visualType": "column",
+      "pageId": "b2c37190-bbdf-44cb-be6f-d4908eec921c",
+      "layout": {
+        "x": 0,
+        "y": 0,
+        "width": 9,
+        "height": 7
+      },
+      "queryRef": {
+        "kind": "query",
+        "queryId": "aaaf2b6a-6ee2-4636-9be9-c8022feebeee"
+      },
+      "visualOptions": {
+        "multipleYAxes": {
+          "base": {
+            "id": "-1",
+            "label": "",
+            "columns": [],
+            "yAxisMaximumValue": null,
+            "yAxisMinimumValue": null,
+            "yAxisScale": "linear",
+            "horizontalLines": []
+          },
+          "additional": [],
+          "showMultiplePanels": false
+        },
+        "seriesColors": {},
+        "hideLegend": false,
+        "legendLocation": "bottom",
+        "xColumnTitle": "",
+        "xColumn": null,
+        "yColumns": [
+          "No_Bikes"
+        ],
+        "seriesColumns": null,
+        "xAxisScale": "linear",
+        "verticalLine": "",
+        "crossFilter": [],
+        "crossFilterDisabled": false,
+        "drillthroughDisabled": false,
+        "forceAxisTicks": false,
+        "drillthrough": [],
+        "selectedDataOnLoad": {
+          "all": true,
+          "limit": 10
+        }
+      }
+    }
+  ],
+  "baseQueries": [],
+  "parameters": [
+    {
+      "kind": "duration",
+      "id": "b910840d-e2f6-4e50-8185-324ee8ee6587",
+      "displayName": "Time range",
+      "description": "",
+      "beginVariableName": "_startTime",
+      "endVariableName": "_endTime",
+      "defaultValue": {
+        "kind": "dynamic",
+        "count": 1,
+        "unit": "hours"
+      },
+      "showOnPages": {
+        "kind": "all"
+      }
+    }
+  ],
+  "dataSources": [
+    {
+      "id": "e13087f8-a61f-476c-8933-dbc59d71dcc0",
+      "kind": "kusto-trident",
+      "name": "evhouse1",
+      "clusterUri": "",
+      "databaseArtifactId": "d607bf10-6f4b-44b7-bf84-270e4ff95a49",
+      "database": "4ff95a49-270e-bf84-44b7-6f4bd607bf10",
+      "workspace": "00000000-0000-0000-0000-000000000000"
+    }
+  ],
+  "pages": [
+    {
+      "name": "Page 1",
+      "id": "b2c37190-bbdf-44cb-be6f-d4908eec921c"
+    }
+  ],
+  "queries": [
+    {
+      "dataSource": {
+        "kind": "inline",
+        "dataSourceId": "e13087f8-a61f-476c-8933-dbc59d71dcc0"
+      },
+      "text": "// Use 'take' to view a sample number of records in the table and check the data.\nKqlTable\n| take 100\n",
+      "id": "aaaf2b6a-6ee2-4636-9be9-c8022feebeee",
+      "usedVariables": []
+    }
+  ]
+}
